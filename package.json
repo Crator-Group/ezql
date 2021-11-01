@@ -1,0 +1,56 @@
+{
+  "name": "ezql",
+  "description": "An easy to use SQL tool for developers",
+  "version": "0.1.0",
+  "author": "Hiram Cruz <hiram0101@gmail.com>",
+  "main": "./electron/electron.js",
+  "private": "true",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Crator-Group/ezql"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview",
+    "electron:start": "electron .",
+    "electron:dev": "concurrently yarn:dev yarn:electron:start",
+    "electron:build": "yarn build && electron-builder --dir",
+    "electron:pack": "yarn build && electron-builder"
+  },
+  "build": {
+    "appId": "group.crator.ezql",
+    "productName": "EZQL",
+    "copyright": "Copyright © 2021 Hiram Cruz",
+    "directories": {
+      "buildResources": "assets"
+    },
+    "files": [
+      "build/**/*",
+      "electron/**/*"
+    ],
+    "nsis": {
+      "artifactName": "EZQL-Setup-${version}.${ext}"
+    },
+    "publish": {
+      "provider": "github",
+      "private": false,
+      "owner": "Crator-Group",
+      "repo": "ezql"
+    }
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^1.0.0-next.11",
+    "autoprefixer": "^10.4.0",
+    "concurrently": "^6.3.0",
+    "dotenv": "^10.0.0",
+    "electron": "^15.3.0",
+    "electron-builder": "^22.13.1",
+    "electron-log": "^4.4.1",
+    "electron-updater": "^4.3.9",
+    "postcss": "^8.3.11",
+    "svelte": "^3.37.0",
+    "tailwindcss": "^2.2.19",
+    "vite": "^2.6.4"
+  }
+}
